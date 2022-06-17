@@ -1,13 +1,10 @@
-
-
-
 from _util.util_v1 import * ; import _util.util_v1 as uutil
 from _util.pytorch_v1 import * ; import _util.pytorch_v1 as utorch
 from _util.twodee_v0 import * ; import _util.twodee_v0 as u2d
 
 import _util.keypoints_v0 as util_keypoints
 import _util.helper_models_v0 as util_hm
-
+danbooru_taggerPath='/kaggle/input/bizarreposedata/character_bg_seg.ckpt'
 
 class Model(pl.LightningModule):
     def __init__(self, bargs, pargs, largs, margs):
@@ -210,8 +207,7 @@ class ResnetFeatureExtractor(nn.Module):
             # base = Classifier.load_from_checkpoint(self.inferserve['fn'])
             self.inferserve = None
             base = Classifier.load_from_checkpoint(
-                './_train/danbooru_tagger/runs/waning_kate_vulcan0001/checkpoints/'
-                'epoch=0022-val_f2=0.4461-val_loss=0.0766.ckpt'
+                danbooru_taggerPath
             )
             self.base_hparams = base.hparams
             
