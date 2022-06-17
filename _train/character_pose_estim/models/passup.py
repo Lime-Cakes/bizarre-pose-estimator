@@ -4,7 +4,7 @@ from _util.twodee_v0 import * ; import _util.twodee_v0 as u2d
 
 import _util.keypoints_v0 as util_keypoints
 import _util.helper_models_v0 as util_hm
-danbooru_taggerPath='/kaggle/input/bizarreposedata/character_bg_seg.ckpt'
+danbooru_taggerPath='/kaggle/input/bizarreposedata/danbooru_tagger.ckpt'
 
 class Model(pl.LightningModule):
     def __init__(self, bargs, pargs, largs, margs):
